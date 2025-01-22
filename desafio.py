@@ -1,21 +1,21 @@
 
-def desafio_mergesort(lista, inicio=0, fim=None):
-    if fim is None:
-        fim = len(lista)
+def desafio_mergesort(lista, inicio=0, fim=None): #função que dividira e fara a ordenação da lista
+    if fim is None: #para pode iniciar a função com o fim sem ser definido pois a lista também é um parametro
+        fim = len(lista) #lê o tamanho da lista e armazena na variavel
 
-    if fim - inicio > 1:
-        meio = (fim + inicio) // 2
-        desafio_mergesort(lista, inicio, meio) 
-        desafio_mergesort(lista, meio, fim)     
-        merge(lista, inicio, meio, fim)         
+    if fim - inicio > 1: #se haver mais de um caracter na lista 
+        meio = (fim + inicio) // 2 #cria a variavel que é o meio da lista
+        desafio_mergesort(lista, inicio, meio)  #lado "esquerdo da lista
+        desafio_mergesort(lista, meio, fim)     #lado "direito " da lista
+        merge(lista, inicio, meio, fim) #chama a função merge        
 
-def merge(lista, inicio, meio, fim):
-    left = lista[inicio:meio]
-    rigth = lista[meio:fim]
-    i, j = 0, 0
+def merge(lista, inicio, meio, fim): #função que compara os dois lado da lista
+    left = lista[inicio:meio] #lado esquerdo que corresponde do inicio até o meio da lista
+    rigth = lista[meio:fim] #lado direito que corresponde do meio até o ultimo caracter da lista
+    i, j = 0, 0 
 
-    for k in range(inicio, fim):
-        if i >= len(left):
+    for k in range(inicio, fim): #vai rodar a lista do inicio até o fim
+        if i >= len(left): #caso
             lista[k] = rigth[j]
             j += 1
         elif j >= len(rigth):
@@ -39,18 +39,18 @@ print(numeros_aleatorios)
 
 #insertion sort
 
-def insertion_sort(valores):
-    for i in range(1, len(valores)):  
+def insertion_sort(valores): #função que realiza a ordenação da lista com o metodo insertion sort
+    for i in range(1, len(valores)):  #vai rodar de um até o numero de elementos presente na lista
         
-        j = i  
+        j = i  #variavel j recebe o valor de i para o loop seguinte terminar junto com esse
 
       
-        while j > 0 and valores[j] < valores[j - 1]:
+        while j > 0 and valores[j] < valores[j - 1]: #loop que funcionara enquanto o j for maior que 10 e os valores passados na lista for menor que o anterior
             # Troca os valores
-            auxiliadora = valores[j]
-            valores[j] = valores[j - 1]
-            valores[j - 1] = auxiliadora
-            j -= 1  
+            auxiliadora = valores[j] #ajuda na troca de valores
+            valores[j] = valores[j - 1] #troca o valor pelo anterior
+            valores[j - 1] = auxiliadora 
+            j -= 1  #descrementa a variavewl
 
 
 numeros_insertions = [1, 5, 6, 88, 99, 666, 77, 441, 11, 1]
@@ -98,7 +98,7 @@ def busca_binaria (lista,elemento):
         
        
         if lista[meio] == elemento:
-            print(f'Valor encontrado com sucesso na posição: {meio}')
+            print(f'O numero foi encontrado com sucesso na posição: {meio}')
             return meio  
         
    
@@ -112,3 +112,4 @@ def busca_binaria (lista,elemento):
 
 lista = [1, 3, 5, 7, 9, 11, 13, 15]
 busca_binaria(lista, elemento)
+
