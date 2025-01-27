@@ -7,8 +7,8 @@ class JogoAdivinhacao ():
         if self.numeros ==  palpite:
             return 'Parabens você ganhou'
         elif self.numeros > palpite:
-            return 'O numero misterioso é mais alto'
+            return 'O numero é mais alto'
         elif self.numeros < palpite:
-            return 'O numero misterioso é menor'
+            return 'O numero  é menor'
 yasmim = JogoAdivinhacao()
 print(yasmim.dar_palpite(0))
