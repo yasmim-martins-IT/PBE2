@@ -61,12 +61,12 @@ insertion_sort(numeros_insertions)
 
 print(numeros_insertions)
 
-def bubble_sort(values) :
-    tamanho = len(values)
-    for i in range(tamanho - 1):
-        for j in range(tamanho -i - 1):
-            if values[j] > values[j+1]:
-                values[j],values[j+1] = values [j+1],values[j]
+def bubble_sort(values) : #função que ordena a lista utilizando o metodo sort
+    tamanho = len(values) #variavel que armazena o tamanho da lista
+    for i in range(tamanho - 1): #loop que rodara até o ultimo indice da lista
+        for j in range(tamanho -i - 1): #verifica um elemento a menos
+            if values[j] > values[j+1]: #se o elemento for maior que o proximo da lista
+                values[j],values[j+1] = values [j+1],values[j] #inverte de valor
 
             
 sla = [1.22,15,2,1,1,2,1,1,333,3,333,7]
@@ -75,39 +75,39 @@ bubble_sort(sla)
 
 print(sla)
 
-'''def busca_linear(lista, elemento_desejado):
-    tamanho = len(lista)
+def busca_linear(lista, elemento_desejado): #função de busca linear
+    tamanho = len(lista) #armazena o tamanho da lista
 
-    for i in range(tamanho - 1 ):
-        if lista[i] == elemento_desejado :
-            print(f'elemento localizado com sucesso! : {lista[i]} ')
-            break
+    for i in range(tamanho - 1 ): #roda toda a lista
+        if lista[i] == elemento_desejado : #compara com elemento desejado
+            print(f'elemento localizado com sucesso! : {lista[i]} ') #resposta ao usuario
+            break #fim do loop
 
 elemento = 7
 
-busca_linear(sla,elemento)'''
+busca_linear(sla,elemento)
 
 elemento = 1
 
-def busca_binaria (lista,elemento):
-    inicio = 0
-    fim = len(lista)-1
+def busca_binaria (lista,elemento): #função busca binaria
+    inicio = 0 #variavel zerada (elemento inicial)
+    fim = len(lista)-1 #armazena o elemento final da lista
     
-    while fim >= inicio:
-        meio = (fim + inicio) // 2  
+    while fim >= inicio: #se o fim for maior ou igual o começo (garante que não haja conjuntos vazio)
+        meio = (fim + inicio) // 2  #arazena elemento meio da lista
         
        
-        if lista[meio] == elemento:
-            print(f'O numero foi encontrado com sucesso na posição: {meio}')
-            return meio  
+        if lista[meio] == elemento: #se o meio for igual o elemento
+            print(f'O numero foi encontrado com sucesso na posição: {meio}') #resposta usuário
+            return meio  #retorna a variavel meio
         
    
-        elif lista[meio] > elemento:
-            fim = meio - 1
+        elif lista[meio] > elemento: #compara se a variavel do meio é igual o elemento desejado
+            fim = meio - 1 #o final se torna o elemento anterior ao meios
         
 
         else:
-            inicio = meio + 1
+            inicio = meio + 1 #o inicio se torna o elemento posterior ao meiio
 
 
 lista = [1, 3, 5, 7, 9, 11, 13, 15]
