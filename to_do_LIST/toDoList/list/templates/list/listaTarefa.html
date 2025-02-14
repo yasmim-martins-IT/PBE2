@@ -1,0 +1,37 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do List</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>TO-DO-LIST</h1>
+    </header>
+    <main>
+        <section>
+            <h2>TAREFAS</h2>
+            <ul>
+                {% for tarefa in tarefas %}
+                <li>
+                    <h2>{{ tarefa.titulo }}</h2>
+                    <p>{{ tarefa.descricao|slice:":200" }}...</p>
+                    <p>
+                        {% if tarefa.status %}
+                            Tarefa completa.
+                        {% else %}
+                            Tarefa incompleta.
+                        {% endif %}
+                    </p>
+                    <p><a href="#">Leia mais</a></p>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+    </main>
+</body>
+</html>
